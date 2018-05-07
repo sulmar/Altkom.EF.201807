@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Altkom.EF.Shop.Models
 {
-    public class Class1
+    public class Base
     {
     }
 }
