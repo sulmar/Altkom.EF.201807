@@ -14,7 +14,7 @@ namespace Altkom.EF.Shop.DbServices
 
         public DbCustomersService()
         {
-            context = new ShopContext();
+           context = new ShopContext();
         }
 
         public IList<Customer> Get(string postcode)
@@ -31,12 +31,25 @@ namespace Altkom.EF.Shop.DbServices
 
         public Customer Get(int id)
         {
-            throw new NotImplementedException();
+            // return context.Customers.Find(id);
+
+            return context.Customers.SingleOrDefault(c => c.Id == id);
+
+            // return context.Customers.FirstOrDefault(c => c.Id == id);
         }
 
         public IList<Customer> Get()
         {
-            throw new NotImplementedException();
+            IQueryable<Customer> customers = context
+                .Customers
+                .Where(c => c.FirstName == "Marcin");
+
+            customers = customers
+                .OrderBy(c => c.Id)
+                .Skip(1)
+                .Take(2);
+
+            return customers.ToList();
         }
 
         public void Remove(int id)
@@ -46,7 +59,27 @@ namespace Altkom.EF.Shop.DbServices
 
         public void Update(Customer customer)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(context.Entry(customer).State);
+
+            // ustawiamy ręcznie stan obiektu
+            // automatycznie wszystkie właściwości ustawiane są na IsModified
+            // context.Entry(customer).State = System.Data.Entity.EntityState.Modified;
+
+            // ustawia konkretne właściwości do zmodyfikowania
+            // stan obiektu jest automatyczne ustawiany na Modified
+            context.Entry(customer).Property(p => p.FirstName).IsModified = true;            
+
+            Console.WriteLine(context.Entry(customer).State);
+
+            var entities = context.ChangeTracker.Entries();
+
+            context.SaveChanges();
+
+        }
+
+        public void Dispose()
+        {
+            context.Dispose();
         }
     }
 }

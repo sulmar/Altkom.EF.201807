@@ -21,6 +21,9 @@ namespace Altkom.EF.Shop.DbServices.Configurations
             Property(p=> p.LastName)
                 .HasMaxLength(70)
                 .IsRequired();
+
+
+            this.MapToStoredProcedures();
         }
     }
 }

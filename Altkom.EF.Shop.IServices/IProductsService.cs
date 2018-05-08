@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace Altkom.EF.Shop.IServices
 {
-    public interface IOrdersService
+    public interface IProductsService
     {
-        void Add(Order order);
+        IList<Product> Get();
 
-        Order Get(int id);
+        Product Get(int id);
+
+        void Update(Product product);
+
+        void Remove(int id);
     }
 }

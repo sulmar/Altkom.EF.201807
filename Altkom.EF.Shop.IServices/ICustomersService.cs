@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Altkom.EF.Shop.IServices
 {
-    public interface ICustomersService
+    public interface ICustomersService : IDisposable
     {
         void Add(Customer customer);
         Customer Get(int id);

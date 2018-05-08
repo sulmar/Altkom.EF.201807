@@ -49,8 +49,12 @@
   <ItemGroup>
     <Compile Include="Configurations\AddressConfiguration.cs" />
     <Compile Include="Configurations\CustomerConfiguration.cs" />
+    <Compile Include="Configurations\ItemConfiguration.cs" />
+    <Compile Include="Configurations\OrderConfiguration.cs" />
+    <Compile Include="Conventions\DateTime2Convention.cs" />
     <Compile Include="DbCustomersService.cs" />
     <Compile Include="DbOrdersService.cs" />
+    <Compile Include="DbProductsService.cs" />
     <Compile Include="Migrations\201805070959336_InitialCreate.cs" />
     <Compile Include="Migrations\201805070959336_InitialCreate.Designer.cs">
       <DependentUpon>201805070959336_InitialCreate.cs</DependentUpon>
@@ -86,6 +90,30 @@
     <Compile Include="Migrations\201805071340191_AddItem.cs" />
     <Compile Include="Migrations\201805071340191_AddItem.Designer.cs">
       <DependentUpon>201805071340191_AddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805080654536_AddItemTypeToItem.cs" />
+    <Compile Include="Migrations\201805080654536_AddItemTypeToItem.Designer.cs">
+      <DependentUpon>201805080654536_AddItemTypeToItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805080747074_ChangeDateOrder.cs" />
+    <Compile Include="Migrations\201805080747074_ChangeDateOrder.Designer.cs">
+      <DependentUpon>201805080747074_ChangeDateOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805080755119_AddDeliveryDateToOrder.cs" />
+    <Compile Include="Migrations\201805080755119_AddDeliveryDateToOrder.Designer.cs">
+      <DependentUpon>201805080755119_AddDeliveryDateToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081045016_AddCreateAndModifiedDateToBase.cs" />
+    <Compile Include="Migrations\201805081045016_AddCreateAndModifiedDateToBase.Designer.cs">
+      <DependentUpon>201805081045016_AddCreateAndModifiedDateToBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081310058_AddRemoveProduct.cs" />
+    <Compile Include="Migrations\201805081310058_AddRemoveProduct.Designer.cs">
+      <DependentUpon>201805081310058_AddRemoveProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805081322160_AddStoredProceduresToCustomer.cs" />
+    <Compile Include="Migrations\201805081322160_AddStoredProceduresToCustomer.Designer.cs">
+      <DependentUpon>201805081322160_AddStoredProceduresToCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +160,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805071340191_AddItem.resx">
       <DependentUpon>201805071340191_AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805080654536_AddItemTypeToItem.resx">
+      <DependentUpon>201805080654536_AddItemTypeToItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805080747074_ChangeDateOrder.resx">
+      <DependentUpon>201805080747074_ChangeDateOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805080755119_AddDeliveryDateToOrder.resx">
+      <DependentUpon>201805080755119_AddDeliveryDateToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081045016_AddCreateAndModifiedDateToBase.resx">
+      <DependentUpon>201805081045016_AddCreateAndModifiedDateToBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081310058_AddRemoveProduct.resx">
+      <DependentUpon>201805081310058_AddRemoveProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805081322160_AddStoredProceduresToCustomer.resx">
+      <DependentUpon>201805081322160_AddStoredProceduresToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

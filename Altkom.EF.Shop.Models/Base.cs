@@ -8,5 +8,7 @@ namespace Altkom.EF.Shop.Models
 {
     public class Base
     {
+        public DateTime CreateDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
 
     // Complex Type (ponieważ nie ma ID)
-    public class Address : Base
+    public class Address
     {
         public string City { get; set; }
         public string Street { get; set; }
