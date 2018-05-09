@@ -14,5 +14,8 @@ namespace Altkom.EF.Shop.IServices
         IList<Customer> Get();
         void Update(Customer customer);
         void Remove(int id);
+
+        void Add(Customer customer1, Customer customer2);
+        void AddDistributed(Customer customer1, Customer customer2);
     }
 }

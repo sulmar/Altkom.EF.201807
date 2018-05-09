@@ -13,6 +13,10 @@ namespace Altkom.EF.Shop.DbServices.Configurations
         public OrderConfiguration()
         {
             Property(p => p.DateOrder).HasColumnType("datetime2");
+
+            Property(p => p.RowVersion)
+                .IsConcurrencyToken()
+                .IsRowVersion();
         }
     }
 }

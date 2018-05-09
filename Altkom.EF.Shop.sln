@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.EF.Shop.IServices", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.EF.Shop.DbServices", "Altkom.EF.Shop.DbServices\Altkom.EF.Shop.DbServices.csproj", "{EC224F3B-9401-4CB7-8F77-1BC54BA9C3F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.EF.Shop.DatabaseFirst", "Altkom.EF.Shop.DatabaseFirst\Altkom.EF.Shop.DatabaseFirst.csproj", "{9F4DB153-CC63-45C2-B5DE-11DCD29C4469}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EC224F3B-9401-4CB7-8F77-1BC54BA9C3F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC224F3B-9401-4CB7-8F77-1BC54BA9C3F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC224F3B-9401-4CB7-8F77-1BC54BA9C3F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F4DB153-CC63-45C2-B5DE-11DCD29C4469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F4DB153-CC63-45C2-B5DE-11DCD29C4469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F4DB153-CC63-45C2-B5DE-11DCD29C4469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F4DB153-CC63-45C2-B5DE-11DCD29C4469}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

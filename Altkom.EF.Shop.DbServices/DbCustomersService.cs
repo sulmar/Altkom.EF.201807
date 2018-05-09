@@ -2,9 +2,11 @@
 using Altkom.EF.Shop.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Altkom.EF.Shop.DbServices
 {
@@ -73,13 +75,85 @@ namespace Altkom.EF.Shop.DbServices
 
             var entities = context.ChangeTracker.Entries();
 
-            context.SaveChanges();
+            
+            bool savedFailed;
+            byte retry = 0;
+
+            do
+            {
+                savedFailed = false;
+                
+
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException e)
+                {
+                    savedFailed = true;
+                    retry++;
+                    e.Entries.Single().Reload();
+                }
+            }
+            while (savedFailed || retry > 5);
+            
 
         }
 
         public void Dispose()
         {
             context.Dispose();
+        }
+
+        public void Add(Customer customer1, Customer customer2)
+        {
+            using (var transaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    context.Customers.Add(customer1);
+                    context.SaveChanges();
+
+                    context.Customers.Add(customer2);
+                    context.SaveChanges();
+
+                    transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    transaction.Rollback();
+                }
+            }
+        }
+
+
+        // hint: add reference to System.Transactions
+        public void AddDistributed(Customer customer1, Customer customer2)
+        {
+            try
+            {
+                using (var transaction = new TransactionScope())
+                {
+                    using (var context1 = new ShopContext())
+                    {
+                        context1.Customers.Add(customer1);
+                        context1.SaveChanges();
+                    }
+
+                    using (var context2 = new ShopContext())
+                    {
+                        context2.Customers.Add(customer2);
+                        context2.SaveChanges();
+                    }
+
+                    // ustawienie flagi "do zacommitowania"
+                    transaction.Complete();
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
         }
     }
 }

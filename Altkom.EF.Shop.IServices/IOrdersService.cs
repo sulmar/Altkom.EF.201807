@@ -12,5 +12,11 @@ namespace Altkom.EF.Shop.IServices
         void Add(Order order);
 
         Order Get(int id);
+
+        Order GetLazy(int id);
+
+        Order GetManual(int id);
+
+        void Update(Order order);
     }
 }

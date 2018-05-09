@@ -15,6 +15,10 @@ namespace Altkom.EF.Shop.Models
         public Address DeliveryAddress { get; set; }
         public DateTime Birthday { get; set; }
 
+        public string Pesel { get; set; }
+
+        public byte[] Photo { get; set; }
+
         public string FullName => $"{FirstName} {LastName}";
     }
 }

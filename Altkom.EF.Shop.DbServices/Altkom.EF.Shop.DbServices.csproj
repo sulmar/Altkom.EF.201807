@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,7 @@
     <Compile Include="DbCustomersService.cs" />
     <Compile Include="DbOrdersService.cs" />
     <Compile Include="DbProductsService.cs" />
+    <Compile Include="DbServicesService.cs" />
     <Compile Include="Migrations\201805070959336_InitialCreate.cs" />
     <Compile Include="Migrations\201805070959336_InitialCreate.Designer.cs">
       <DependentUpon>201805070959336_InitialCreate.cs</DependentUpon>
@@ -114,6 +116,30 @@
     <Compile Include="Migrations\201805081322160_AddStoredProceduresToCustomer.cs" />
     <Compile Include="Migrations\201805081322160_AddStoredProceduresToCustomer.Designer.cs">
       <DependentUpon>201805081322160_AddStoredProceduresToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805090928152_AddConcurencyToken.cs" />
+    <Compile Include="Migrations\201805090928152_AddConcurencyToken.Designer.cs">
+      <DependentUpon>201805090928152_AddConcurencyToken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805090929564_RemoveMapToStoredProcedures.cs" />
+    <Compile Include="Migrations\201805090929564_RemoveMapToStoredProcedures.Designer.cs">
+      <DependentUpon>201805090929564_RemoveMapToStoredProcedures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805091012437_AddRowVersionToOrder.cs" />
+    <Compile Include="Migrations\201805091012437_AddRowVersionToOrder.Designer.cs">
+      <DependentUpon>201805091012437_AddRowVersionToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805091024012_AddPhotoToCustomer.cs" />
+    <Compile Include="Migrations\201805091024012_AddPhotoToCustomer.Designer.cs">
+      <DependentUpon>201805091024012_AddPhotoToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805091333063_AddIndexToCustomer.cs" />
+    <Compile Include="Migrations\201805091333063_AddIndexToCustomer.Designer.cs">
+      <DependentUpon>201805091333063_AddIndexToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805091336519_AddPeselToCustomer.cs" />
+    <Compile Include="Migrations\201805091336519_AddPeselToCustomer.Designer.cs">
+      <DependentUpon>201805091336519_AddPeselToCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -178,6 +204,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805081322160_AddStoredProceduresToCustomer.resx">
       <DependentUpon>201805081322160_AddStoredProceduresToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805090928152_AddConcurencyToken.resx">
+      <DependentUpon>201805090928152_AddConcurencyToken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805090929564_RemoveMapToStoredProcedures.resx">
+      <DependentUpon>201805090929564_RemoveMapToStoredProcedures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091012437_AddRowVersionToOrder.resx">
+      <DependentUpon>201805091012437_AddRowVersionToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091024012_AddPhotoToCustomer.resx">
+      <DependentUpon>201805091024012_AddPhotoToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091333063_AddIndexToCustomer.resx">
+      <DependentUpon>201805091333063_AddIndexToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091336519_AddPeselToCustomer.resx">
+      <DependentUpon>201805091336519_AddPeselToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

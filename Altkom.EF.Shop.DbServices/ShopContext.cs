@@ -15,9 +15,10 @@ namespace Altkom.EF.Shop.DbServices
 {
     public class ShopContext : DbContext
     {
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Service> Services { get; set; }
 
         public ShopContext()
             : base("ShopConnection")
@@ -26,6 +27,16 @@ namespace Altkom.EF.Shop.DbServices
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ShopContext, Configuration>());
 
             this.ObjectContext.ObjectMaterialized += ObjectContext_ObjectMaterialized;
+
+            // Lazy loading
+            //this.Configuration.LazyLoadingEnabled = true;
+            //this.Configuration.ProxyCreationEnabled = true;
+
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
+
+            // globalne wyłączenie mechanizmu śledzenia obiektów
+            // this.Configuration.AutoDetectChangesEnabled = false;
 
         }
 

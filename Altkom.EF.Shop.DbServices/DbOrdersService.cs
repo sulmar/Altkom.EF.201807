@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace Altkom.EF.Shop.DbServices
 {
@@ -50,6 +51,52 @@ namespace Altkom.EF.Shop.DbServices
                 .SingleOrDefault(p=>p.Id == id);
 
             return order;
+        }
+
+        public Order GetLazy(int id)
+        {
+            var order = context.Orders
+                .SingleOrDefault(p => p.Id == id);
+
+            Console.WriteLine(order.Customer.FirstName);
+            return order;
+        }
+
+        public Order GetManual(int id)
+        {
+            var order = context.Orders
+               .SingleOrDefault(p => p.Id == id);
+
+            // TODO: ...
+
+            // Explicit loading
+
+            // pobranie pojedynczego obiektu
+            context.Entry(order)
+                .Reference(p => p.Customer)
+                .Load();
+
+            // pobranie kolekcji
+            context.Entry(order)
+                .Collection(p => p.Details)
+                .Load();
+
+            return order;
+        }
+
+        public void Update(Order order)
+        {
+            context.Entry(order).State = EntityState.Modified;
+
+            try
+            {
+                context.SaveChanges();
+            }
+            catch(DbUpdateConcurrencyException e)
+            {
+
+            }
+            
         }
     }
 }
