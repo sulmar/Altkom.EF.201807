@@ -6,4 +6,5 @@ Przykłady ze szkolenia Entity Framework 6
 Dynamiczne zapytania http://www.albahari.com/nutshell/predicatebuilder.aspx
 
 ## Tutorial
-EF Tutorial https://github.com/sulmar/ef-tutorial/wiki/
+EF Tutorial PL https://github.com/sulmar/ef-tutorial/wiki/
+EF Tutorial http://www.entityframeworktutorial.net/
